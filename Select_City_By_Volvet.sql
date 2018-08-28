@@ -1,4 +1,9 @@
 --Hscker rank
+--starts with volves
 SELECT DISTINCT CITY FROM STATION
 WHERE CITY LIKE '[A, E, I, O, U]%'
 ORDER BY CITY;
+
+--Ends with volves
+SELECT DISTINCT CITY FROM STATION
+WHERE CITY LIKE '%[A, E, I, O, U]';
