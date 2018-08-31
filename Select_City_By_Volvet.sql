@@ -49,3 +49,7 @@ ORDER BY RIGHT(Name, 3), ID ASC;
 SELECT NAME FROM Employee
 WHERE months < 10 AND salary > 2000
 ORDER BY employee_id ASC;
+
+--Query the total population of all cities in CITY where District is California.
+SELECT SUM(POPULATION) FROM CITY
+WHERE DISTRICT = 'California';
