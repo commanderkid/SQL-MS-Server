@@ -64,3 +64,9 @@ WHERE DISTRICT = 'California';
 --Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
 SELECT SUM(POPULATION) FROM CITY
 WHERE COUNTRYCODE = 'JPN';
+    
+--Query the difference between the maximum and minimum populations in CITY.               
+SELECT MAX(POPULATION) - MIN(POPULATION) AS POPULA FROM CITY;
+
+--Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's  key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeroes removed), and the actual average salary.            
+SELECT CAST(CEILING(AVG(CAST(SALARY AS FLOAT)) - (SELECT AVG(CAST(REPLACE(CAST(SALARY AS nvarchar), '0', '') AS FLOAT)) FROM EMPLOYEES)) AS INT) FROM EMPLOYEES;                                              
