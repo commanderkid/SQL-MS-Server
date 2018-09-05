@@ -42,7 +42,6 @@ SELECT NAME FROM STUDENTS
 WHERE Marks > 75
 ORDER BY RIGHT(Name, 3), ID ASC;
 
-
 --Write a query that prints a list of employee names (i.e.: the name attribute) 
 --for employees in Employee having a salary greater than  per month who have been employees for less than  months. 
 --Sort your result by ascending employee_id.
@@ -69,4 +68,8 @@ WHERE COUNTRYCODE = 'JPN';
 SELECT MAX(POPULATION) - MIN(POPULATION) AS POPULA FROM CITY;
 
 --Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's  key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeroes removed), and the actual average salary.            
-SELECT CAST(CEILING(AVG(CAST(SALARY AS FLOAT)) - (SELECT AVG(CAST(REPLACE(CAST(SALARY AS nvarchar), '0', '') AS FLOAT)) FROM EMPLOYEES)) AS INT) FROM EMPLOYEES;                                              
+SELECT CAST(CEILING(AVG(CAST(SALARY AS FLOAT)) - (SELECT AVG(CAST(REPLACE(CAST(SALARY AS nvarchar), '0', '') AS FLOAT)) FROM EMPLOYEES)) AS INT) FROM EMPLOYEES; 
+
+SELECT MAX(SALARY * MONTHS) AS EARNINGS, COUNT(name)
+FROM Employee
+WHERE (SALARY * MONTHS) = (SELECT MAX(SALARY * MONTHS) FROM EMPLOYEE);                                                             
